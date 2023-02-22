@@ -1,0 +1,105 @@
+import static java.lang.Math.tan;
+
+public class Polygon {
+    private int side;
+    private double length;
+    private String type ;
+
+    private Boolean b;
+
+    //this is the default constructor that sets the Polygon as a triangle with side of 1.
+    public Polygon(){
+
+        side = 3;
+        length = 1;
+        type = "Triangle";
+    }
+    //this is an overloaded constructor, for a specific Polygon
+    public Polygon(int NumSides, double SideLength, String ShapeType){
+
+        if (NumSides>2 && SideLength >0){
+            side = NumSides;
+            length = SideLength;
+            type = ShapeType;
+
+
+        }
+        else{
+            side = 3;
+            length = 1;
+            type = "Triangle";
+        }
+// The above checks for the validation of the Polygon. If it's invalid it will set the Polygon as a Triangle again.
+
+    }
+    // Below are the mutators
+    public String getShapeType(){
+        return type;
+    }
+    public double getSideLength(){
+        return length;
+    }
+    public int getNumSides(){
+        return side;
+    }
+    // this is used to calculate the area. It will round any number to the fourth digit to the third digit.
+    public double calculatePerimeter(){
+        double perimeter = (double)side * length;
+        double a = perimeter * 1000;
+        int b = (int) a;
+        double c = (double)b/1000;
+        perimeter = c;
+        return perimeter;
+    }
+    // this is trying to calculate the area by finding the apothem
+    public double calculateArea(){
+        double area = side*length*side/((double)(4*Math.tan(Math.PI/side)));
+        double new1 = area * 1000;
+        int new2 = (int) area;
+        double new4 = (double)area/1000;
+        return new4;
+
+
+
+
+    }
+    // This returns the Area
+    public double getArea(){
+        return calculateArea();
+    }
+
+    // This is the setters for changing the private variables.
+
+    public void setNumSides(int numSides){
+        if (numSides > 2) {
+            side = numSides;
+        }
+
+    }
+
+    public void setSideLength(double SideLength){
+        if (SideLength > 0){
+            length = SideLength;
+        }
+    }
+
+    public void setShapeName(String ShapeName){
+        type = ShapeName;
+    }
+
+    public String toString() {
+
+        if (length > 0 && side > 2) {
+
+            return "The polygon has a length of " + length + " and it has " + side + " sides " + " and its name is " + type;
+        }
+        else {
+            return "This is not a valid polygon";
+        }
+
+    }
+
+
+
+    }
+
