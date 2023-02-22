@@ -58,6 +58,8 @@ public class Polygon {
         int new2 = (int) area;
         double new4 = (double)area/1000;
         return new4;
+        
+        double area Math.round(1000*side*length*side/((double)(4*Math.tan(Math.PI/side))))/1000
 
 
 
